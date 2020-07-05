@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700");
 @import url("fontawesome-all.min.css");
 
-/* #first-foot {
-	display: block;
-	text-align: center;
-} */
+
+.foot {
+	margin: 0 auto;
+}
+
+textarea {
+	resize: none;
+}
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -278,6 +282,7 @@ input, select, textarea {
 				.container.medium {
 					width: 100%;
 				}
+
 
 		}
 
@@ -1826,21 +1831,12 @@ input, select, textarea {
 					background-color: #3C5A98;
 				}
 
-				ul.social li a.fa-dribbble {
-					background-color: #C4376B;
-				}
 
 				ul.social li a.fa-linkedin-in {
 					background-color: #006599;
 				}
 
-				ul.social li a.fa-tumblr {
-					background-color: #51718A;
-				}
 
-				ul.social li a.fa-google-plus {
-					background-color: #DA2713;
-				}
 
 				ul.social li a.fa-github {
 					background-color: #FAFAFA;
@@ -1851,7 +1847,7 @@ input, select, textarea {
 				}
 
 				ul.social li a.fa-instagram {
-					background-color: #E0D7C8;
+					background-color: #e63bef;
 				}
 
 				ul.social li a.fa-foursquare {
