@@ -10,6 +10,13 @@ textarea {
 	resize: none;
 }
 
+#par {
+	color: #41B8E8;
+	font-weight: bold;
+	font-size: 20px;
+	margin: 0 auto;
+}
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,

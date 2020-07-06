@@ -146,7 +146,7 @@
 			</header>
 			<div class="row">
 				<div class="col-12">
-					<form method="post" action="#" id="contact-form">
+					<form method="post" action="#" id="contact-form" name="myForm">
 						<div class="row">
 							<input type="hidden" name="contact_number">
 							<div class="col-6 col-12-small">
@@ -161,9 +161,11 @@
 							<div class="col-12">
 								<textarea name="message" id="message" placeholder="Message"></textarea>
 							</div>
+							<p id="par"></p>
 							<div class="col-12">
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<li><input type="submit" value="Send Message" onclick="validate()" />
+									</li>
 									<li><input type="reset" value="Clear Form" class="alt" /></li>
 								</ul>
 							</div>
@@ -174,11 +176,17 @@
 					<hr />
 					<h3>Find me on ...</h3>
 					<ul class="social">
-						<li><a href="#" class="icon brands fa-twitter" target="blank_"><span class="label" >Twitter</span></a></li>
-						<li><a href="https://www.facebook.com/koraisidora/" class="icon brands fa-facebook-f" target="blank_"><span class="label">Facebook</span></a></li>
-						<li><a href="https://www.linkedin.com/in/isidora-korac-542522175/" class="icon brands fa-linkedin-in" target="blank_"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://www.instagram.com/isidora_kora/" class="icon brands fa-instagram" target="blank_"><span class="label" >Google+</span></a></li>
-						<li><a href="https://github.com/KoracIsidora" class="icon brands fa-github" target="blank_"><span class="label" >Github</span></a></li>
+						<li><a href="https://twitter.com/IsidoraKora" class="icon brands fa-twitter"
+								target="blank_"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/koraisidora/" class="icon brands fa-facebook-f"
+								target="blank_"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.linkedin.com/in/isidora-korac-542522175/"
+								class="icon brands fa-linkedin-in" target="blank_"><span
+									class="label">LinkedIn</span></a></li>
+						<li><a href="https://www.instagram.com/isidora_kora/" class="icon brands fa-instagram"
+								target="blank_"><span class="label">Google+</span></a></li>
+						<li><a href="https://github.com/KoracIsidora" class="icon brands fa-github"
+								target="blank_"><span class="label">Github</span></a></li>
 					</ul>
 					<hr />
 				</div>
@@ -199,21 +207,36 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-           emailjs.init('user_8jBX7E9Leax5sZqV3rtos');
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // generate the contact number value
-                this.contact_number.value = Math.random() * 100000 | 0;
-                emailjs.sendForm('portfolio', 'contact_form', this);
-            });
-        }
-    </script>
+	<script type="text/javascript">
+		(function () {
+			emailjs.init('user_8jBX7E9Leax5sZqV3rtos');
+		})();
+	</script>
+	<script type="text/javascript">
+		window.onload = function () {
+			document.getElementById('contact-form').addEventListener('submit', function (event) {
+				event.preventDefault();
+				// generate the contact number value
+				this.contact_number.value = Math.random() * 100000 | 0;
+				emailjs.sendForm('portfolio', 'contact_form', this);
+			});
+		}
+
+		const validate = () => {
+			let x = document.forms["myForm"]["user_name"].value;
+			let y = document.forms["myForm"]["user_email"].value;
+			let z = document.forms["myForm"]["message"].value;
+			let c = document.forms["myForm"]["subject"].value;
+			if (x == "" || y == "" || z == "" || c == "") {
+				let message = "*All the fields must be filled."
+				document.getElementById("par").innerHTML = message;
+				return false;
+			} else {
+				let message2 = "Message sent."
+				document.getElementById("par").innerHTML = message2;
+			}
+		}
+	</script>
 
 </body>
 
