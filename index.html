@@ -146,13 +146,14 @@
 			</header>
 			<div class="row">
 				<div class="col-12">
-					<form method="post" action="#">
+					<form method="post" action="#" id="contact-form">
 						<div class="row">
+							<input type="hidden" name="contact_number">
 							<div class="col-6 col-12-small">
-								<input type="text" name="name" id="name" placeholder="Name" />
+								<input type="text" name="user_name" id="name" placeholder="Name" />
 							</div>
 							<div class="col-6 col-12-small">
-								<input type="text" name="email" id="email" placeholder="Email" />
+								<input type="text" name="user_email" id="email" placeholder="Email" />
 							</div>
 							<div class="col-12">
 								<input type="text" name="subject" id="subject" placeholder="Subject" />
@@ -197,6 +198,22 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init('user_8jBX7E9Leax5sZqV3rtos');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate the contact number value
+                this.contact_number.value = Math.random() * 100000 | 0;
+                emailjs.sendForm('portfolio', 'contact_form', this);
+            });
+        }
+    </script>
 
 </body>
 
